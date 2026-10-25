@@ -43,9 +43,6 @@ def get_data(key):
 if page=="Dashboard":
     st.subheader("Strategy dashboard")
     a,b,c,d=st.columns(4); a.metric("Market","BTC futures"); b.metric("Timeframe","1D"); c.metric("Target",f"{rr:g}R"); d.metric("Risk",f"{risk:.1f}%")
-    st.markdown("### Implemented rules")
-    st.markdown("- **Long:** completed candle is bullish and closes above the previous completed candle's high.\n- **Short:** completed candle is bearish and closes below the previous completed candle's low.\n- **Entry:** next daily candle open in backtest.\n- **Stop:** signal candle low for long / high for short, plus buffer.\n- **Target:** configurable R multiple.\n- **Costs:** fees and adverse slippage on entry and exit.\n- **Sizing:** risk-budget sizing bounded by notional cap.\n- **Cooldown:** after three consecutive losses, pause new entries for three days.")
-    st.info("These entry/stop/target details are explicit engineering assumptions where the source strategy did not define exact execution mechanics.")
 elif page=="Backtest":
     st.subheader("Historical backtest")
     data,label=get_data("backtest")
